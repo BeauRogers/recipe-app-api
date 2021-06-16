@@ -17,13 +17,13 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         # each set of brackets is a section
-        ( ('Person Info'), {'fields':('name',)}), # need the ',' after 'name'
+        (('Person Info'), {'fields': ('name',)}),  # need the ',' after 'name'
         # otherwise it will think it's just a string
         (
             _('Permissions'),
             {'fields': ('is_active', 'is_staff', 'is_superuser')}
         ),
-        ( ('Important dates'), {'fields': ('last_login',)})
+        (('Important dates'), {'fields': ('last_login',)})
     )
     add_fieldsets = (
         (None, {
@@ -31,5 +31,6 @@ class UserAdmin(BaseUserAdmin):
             'fields': ('email', 'password1', 'password2')
         }),
     )
+
 
 admin.site.register(models.User, UserAdmin)
