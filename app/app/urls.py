@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/user/', include('user.urls')),
 ]
+# the 'include' is a helper funciton to define URLs are string.
+# This will call get passed to our 'user' urls.py file and will create
+# a new user. In the 'user' folder section, it will also look for the
+# pattern 'create/', which would occur after the 'api/user/' pattern.
